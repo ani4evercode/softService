@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>softService Dashboard</title>
+  <link rel="stylesheet" href="../dist/output.css" />
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar Navigation -->
+    <aside class="hidden w-64 border-r border-gray-200 bg-gray-100 md:block">
+      <div class="divide-y-2 space-y-4">
+        <h1 class="px-4 py-4 text-2xl font-bold text-blue-700">softService</h1>
+
+        <ul class="py-4">
+          <li class="mb-2">
+            <a href="#" class="block rounded-r-md bg-blue-700 px-4 py-2 text-white transition duration-300">
+              Dashboard
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="#" class="block rounded-r-md px-4 py-2 transition duration-300 hover:bg-blue-700 hover:text-white">
+              Projects
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="#" class="block rounded-r-md px-4 py-2 transition duration-300 hover:bg-blue-700 hover:text-white">
+              Analytics
+            </a>
+          </li>
+          <li class="mb-2">
+            <a href="#" class="block rounded-r-md px-4 py-2 transition duration-300 hover:bg-blue-700 hover:text-white">
+              Team
+            </a>
+          </li>
+        </ul>
+        <div class="px-4 py-2">
+          <p class="font-bold text-gray-600">Settings</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 p-6">
+
+      <!-- Mobile Navigation -->
+      <div class="mb-6 md:hidden">
+        <div class="flex items-center justify-between gap-4">
+          <h1 class="text-2xl font-bold text-blue-700">softService</h1>
+          <button aria-label="Toggle Menu" class="p-2 text-xl" id="mobile-menu-btn">☰</button>
+        </div>
+
+        <nav class="mt-4 hidden flex-col gap-2 rounded-lg bg-white p-4 shadow" id="mobile-menu">
+          <a href="#" class="py-1">Dashboard</a>
+          <a href="#" class="py-1">Projects</a>
+          <a href="#" class="py-1">Analytics</a>
+          <a href="#" class="py-1">Team</a>
+          <a href="#" class="py-1">Settings</a>
+        </nav>
+      </div>
+
+      <!-- Top Header / Dashboard Bar -->
+      <div class="sticky top-0 z-50 flex flex-col gap-4 rounded-lg bg-white p-4 shadow md:flex-row md:items-center md:justify-between">
+
+        <h1 class="text-2xl font-bold">Dashboard</h1>
+
+        <!-- Search -->
+        <div class="flex max-w-xl flex-1 gap-2">
+          <input type="text" id="search-input" placeholder="Search projects..." class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+
+          <button id="search-btn" class="rounded-lg bg-blue-600 px-4 py-2 text-white transition hover:bg-blue-700">
+            Search
+          </button>
+        </div>
+
+        <!-- Right side -->
+        <div class="flex items-center gap-4">
+
+          <!-- Notifications -->
+          <div class="relative">
+            <button id="notification-btn" class="text-xl">
+              🔔
+            </button>
+
+            <div id="notification-panel" class="absolute right-0 z-50 mt-2 hidden w-72 rounded-lg bg-white p-4 shadow-lg">
+              <h3 class="mb-3 font-bold">Notifications</h3>
+
+              <div class="mb-3 border-b pb-3">
+                <p class="font-semibold">New project assigned</p>
+                <p class="text-sm text-gray-500">Website Redesign</p>
+              </div>
+
+              <div class="mb-3 border-b pb-3">
+                <p class="font-semibold">New message</p>
+                <p class="text-sm text-gray-500">Sarah sent you a message</p>
+              </div>
+
+              <div>
+                <p class="font-semibold">Project completed</p>
+                <p class="text-sm text-gray-500">Mobile App</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile -->
+          <div class="relative">
+            <button id="profile-btn" class="flex items-center gap-2">
+              <span>👤</span>
+              <span>John</span>
+            </button>
+
+            <div id="profile-panel" class="absolute right-0 z-50 mt-2 hidden w-48 rounded-lg bg-white p-4 shadow-lg">
+              <a href="#" class="block py-2 hover:text-blue-600">
+                👤 View Profile
+              </a>
+
+              <a href="#" class="block py-2 hover:text-blue-600">
+                ⚙️ Account Settings
+              </a>
+
+              <button id="logout-btn" class="block w-full py-2 text-left hover:text-red-600">
+                🚪 Logout
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Key Performance Indicators (KPIs) -->
+      <section class="py-4">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div class="space-y-2 rounded-lg border border-blue-700 bg-white p-6 text-center text-gray-800 shadow-md transition duration-300 hover:-translate-y-1">
+            <h3 class="text-lg font-bold text-gray-600">Revenue</h3>
+            <div class="text-3xl font-bold">$24,500</div>
+            <p class="text-sm font-semibold text-green-600">+12.5%</p>
+          </div>
+
+          <div class="space-y-2 rounded-lg border border-blue-700 bg-white p-6 text-center text-gray-800 shadow-md transition duration-300 hover:-translate-y-1">
+            <h3 class="text-lg font-bold text-gray-600">Users</h3>
+            <div class="text-3xl font-bold">10,234</div>
+            <p class="text-sm font-semibold text-green-600">+8.2%</p>
+          </div>
+
+          <div class="space-y-2 rounded-lg border border-blue-700 bg-white p-6 text-center text-gray-800 shadow-md transition duration-300 hover:-translate-y-1">
+            <h3 class="text-lg font-bold text-gray-600">Projects</h3>
+            <div class="text-3xl font-bold">234</div>
+            <p class="text-sm font-semibold text-green-600">+5.4%</p>
+          </div>
+
+          <div class="space-y-2 rounded-lg border border-blue-700 bg-white p-6 text-center text-gray-800 shadow-md transition duration-300 hover:-translate-y-1">
+            <h3 class="text-lg font-bold text-gray-600">Satisfaction</h3>
+            <div class="text-3xl font-bold">98.5%</div>
+            <p class="text-sm font-semibold text-green-600">+2.1%</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Projects Table -->
+      <section class="py-6">
+        <h2 class="mb-4 text-2xl font-bold">Recent Projects</h2>
+
+        <div class="rounded-lg border border-blue-700 bg-white p-4 shadow-md transition duration-300 hover:-translate-y-1">
+          <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr class="text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                  <th class="px-4 py-3">Project</th>
+                  <th class="px-4 py-3">Status</th>
+                  <th class="px-4 py-3">Team</th>
+                  <th class="px-4 py-3">Due Date</th>
+                </tr>
+              </thead>
+              <tbody id="project-list">
+
+                <tr class="project-row border-b">
+                  <td class="project-name px-4 py-3">
+                    Website Redesign
+                  </td>
+
+                  <td class="px-4 py-3">
+                    <span class="project-status rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-700">
+                      In Progress
+                    </span>
+                  </td>
+
+                  <td class="px-4 py-3">4 members</td>
+                  <td class="px-4 py-3">Sep 15</td>
+                </tr>
+
+                <tr class="project-row border-b">
+                  <td class="project-name px-4 py-3">
+                    Mobile App
+                  </td>
+
+                  <td class="px-4 py-3">
+                    <span class="project-status rounded-full bg-green-100 px-3 py-1 text-sm text-green-700">
+                      Completed
+                    </span>
+                  </td>
+
+                  <td class="px-4 py-3">6 members</td>
+                  <td class="px-4 py-3">Sep 10</td>
+                </tr>
+
+                <tr class="project-row border-b">
+                  <td class="project-name px-4 py-3">
+                    API Integration
+                  </td>
+
+                  <td class="px-4 py-3">
+                    <span class="project-status rounded-full bg-yellow-100 px-3 py-1 text-sm text-yellow-700">
+                      In Progress
+                    </span>
+                  </td>
+
+                  <td class="px-4 py-3">3 members</td>
+                  <td class="px-4 py-3">Sep 20</td>
+                </tr>
+
+                <tr class="project-row">
+                  <td class="project-name px-4 py-3">
+                    Dashboard UI
+                  </td>
+
+                  <td class="px-4 py-3">
+                    <span class="project-status rounded-full bg-red-100 px-3 py-1 text-sm text-red-700">
+                      Pending
+                    </span>
+                  </td>
+
+                  <td class="px-4 py-3">2 members</td>
+                  <td class="px-4 py-3">Sep 25</td>
+                </tr>
+
+              </tbody>
+            </table>
+            <p id="no-results" class="hidden py-6 text-center text-gray-500">
+              No projects found.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Progress -->
+      <section class="py-6">
+        <h2 class="mb-4 text-2xl font-bold">Project Progress</h2>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div class="rounded-lg border border-gray-100 bg-white p-6 shadow-md">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">Website Redesign</h3>
+              <span class="project-status rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">75%</span>
+            </div>
+            <div class="mt-4 h-2.5 w-full rounded-full bg-gray-200">
+              <div class="project-progress h-2.5 rounded-full bg-blue-600" style="width: 75%"></div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border border-gray-100 bg-white p-6 shadow-md">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">Mobile App</h3>
+              <span class="project-status rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">90%</span>
+            </div>
+            <div class="mt-4 h-2.5 w-full rounded-full bg-gray-200">
+              <div class="project-progress h-2.5 rounded-full bg-green-600" style="width: 90%"></div>
+            </div>
+          </div>
+
+          <div class="rounded-lg border border-gray-100 bg-white p-6 shadow-md">
+            <div class="flex items-center justify-between">
+              <h3 class="font-semibold">API Integration</h3>
+              <span class="project-status rounded-full bg-yellow-100 px-3 py-1 text-xs font-semibold text-yellow-700">45%</span>
+            </div>
+            <div class="mt-4 h-2.5 w-full rounded-full bg-gray-200">
+              <div class="project-progress h-2.5 rounded-full bg-yellow-600" style="width: 45%"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Actions -->
+      <section class="py-6">
+        <h2 class="mb-4 text-2xl font-bold">Quick Actions</h2>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          
+            <button id="new-project-btn" class="rounded-lg bg-white p-6 text-left shadow-lg transition hover:shadow-xl">
+              <span>➕</span>
+              <h3 class="text-lg font-semibold">New Project</h3>
+            </button>
+        
+
+          <a href="" class="flex flex-col items-center space-y-2 rounded-lg border border-gray-100 bg-white p-6 text-center shadow-md transition-shadow hover:shadow-xl">
+            <span class="text-2xl">👥</span>
+            <h3 class="text-base font-semibold">Add Team Member</h3>
+          </a>
+
+          <a href="#" class="flex flex-col items-center space-y-2 rounded-lg border border-gray-100 bg-white p-6 text-center shadow-md transition-shadow hover:shadow-xl">
+            <span class="text-2xl">📊</span>
+            <h3 class="text-base font-semibold">View Analytics</h3>
+          </a>
+
+          <a href="#" class="flex flex-col items-center space-y-2 rounded-lg border border-gray-100 bg-white p-6 text-center shadow-md transition-shadow hover:shadow-xl">
+            <span class="text-2xl">⚙️</span>
+            <h3 class="text-base font-semibold">Settings</h3>
+          </a>
+        </div>
+      </section>
+
+      <!-- Recent Activity -->
+      <section class="py-6">
+        <h2 class="mb-4 text-2xl font-bold">Recent Activity</h2>
+
+        <div class="space-y-4 rounded-lg border border-blue-700 bg-white p-6 text-gray-800 shadow-md transition duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <div class="flex items-center gap-3">
+              <span>🟢</span>
+              <div>
+                <h3 class="text-sm font-semibold">Website Redesign</h3>
+                <p class="text-xs text-gray-500">Project updated</p>
+              </div>
+            </div>
+            <span class="text-xs text-gray-400">2 hours ago</span>
+          </div>
+
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <div class="flex items-center gap-3">
+              <span>🔵</span>
+              <div>
+                <h3 class="text-sm font-semibold">John joined the team</h3>
+                <p class="text-xs text-gray-500">New team member</p>
+              </div>
+            </div>
+            <span class="text-xs text-gray-400">4 hours ago</span>
+          </div>
+
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <div class="flex items-center gap-3">
+              <span>🟡</span>
+              <div>
+                <h3 class="text-sm font-semibold">Mobile App</h3>
+                <p class="text-xs text-gray-500">Project completed</p>
+              </div>
+            </div>
+            <span class="text-xs text-gray-400">Yesterday</span>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span>🟣</span>
+              <div>
+                <h3 class="text-sm font-semibold">API Integration</h3>
+                <p class="text-xs text-gray-500">New task assigned</p>
+              </div>
+            </div>
+            <span class="text-xs text-gray-400">Yesterday</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Members -->
+      <section class="py-6">
+        <h2 class="mb-4 text-2xl font-bold">Team Members</h2>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div class="space-y-2 rounded-lg border border-blue-700 bg-white p-6 text-center shadow-md transition duration-300 hover:-translate-y-1">
+            <span class="block text-3xl">👨‍💻</span>
+            <h3 class="font-bold">Alex Johnson</h3>
+            <p class="text-xs text-gray-500">Frontend Developer</p>
+            <span class="inline-block rounded bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">Online</span>
+          </div>
+
+          <div class="space-y-2 rounded-lg border border-blue-700 bg-white p-6 text-center shadow-md transition duration-300 hover:-translate-y-1">
+            <span class="block text-3xl">👩‍💻</span>
+            <h3 class="font-bold">Sarah Williams</h3>
+            <p class="text-xs text-gray-500">UI/UX Designer</p>
+            <span class="inline-block rounded bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">Online</span>
+          </div>
+
+          <div class="space-y-2 rounded-lg border border-blue-700 bg-white p-6 text-center shadow-md transition duration-300 hover:-translate-y-1">
+            <span class="block text-3xl">👨‍💻</span>
+            <h3 class="font-bold">Mike Brown</h3>
+            <p class="text-xs text-gray-500">Backend Developer</p>
+            <span class="inline-block rounded bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">Online</span>
+          </div>
+
+          <div class="space-y-2 rounded-lg border border-blue-700 bg-white p-6 text-center shadow-md transition duration-300 hover:-translate-y-1">
+            <span class="block text-3xl">👩‍💻</span>
+            <h3 class="font-bold">Emma Davis</h3>
+            <p class="text-xs text-gray-500">Project Manager</p>
+            <span class="inline-block rounded bg-green-100 px-2 py-0.5 text-xs font-semibold text-green-700">Online</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Notifications Feed -->
+      <section class="py-6">
+        <h2 class="mb-4 text-2xl font-bold">Notifications Feed</h2>
+
+        <div class="space-y-4 rounded-lg border border-blue-700 bg-white p-6 text-gray-800 shadow-md transition duration-300 hover:-translate-y-1">
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <div class="flex items-center gap-3">
+              <span>🔔</span>
+              <div>
+                <h3 class="text-sm font-semibold">New project assigned</h3>
+                <p class="text-xs text-gray-500">Website Redesign</p>
+              </div>
+            </div>
+            <span class="text-xs text-gray-400">5 minutes ago</span>
+          </div>
+
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <div class="flex items-center gap-3">
+              <span>💬</span>
+              <div>
+                <h3 class="text-sm font-semibold">New message from Sarah</h3>
+                <p class="text-xs text-gray-500">You have a new message</p>
+              </div>
+            </div>
+            <span class="text-xs text-gray-400">20 minutes ago</span>
+          </div>
+
+          <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+            <div class="flex items-center gap-3">
+              <span>✅</span>
+              <div>
+                <h3 class="text-sm font-semibold">Project completed</h3>
+                <p class="text-xs text-gray-500">Mobile App</p>
+              </div>
+            </div>
+            <span class="text-xs text-gray-400">1 hour ago</span>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <span>⚠️</span>
+              <div>
+                <h3 class="text-sm font-semibold">Deadline approaching</h3>
+                <p class="text-xs text-gray-500">API Integration</p>
+              </div>
+            </div>
+            <span class="text-xs text-gray-400">3 hours ago</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-12 border-t border-gray-200 pt-6 text-sm text-gray-500">
+        <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <p>© 2026 softService. All rights reserved.</p>
+          <div class="flex space-x-6">
+            <a href="#" class="transition hover:text-blue-700">Privacy Policy</a>
+            <a href="#" class="transition hover:text-blue-700">Terms of Service</a>
+            <a href="#" class="transition hover:text-blue-700">Contact</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <div id="project-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/50">
+    <div class="mx-4 w-full max-w-md rounded-lg bg-white p-6 shadow-xl">
+
+      <div class="mb-6 flex items-center justify-between">
+        <h2 class="text-xl font-bold">Create New Project</h2>
+
+        <button id="close-project-modal" class="text-xl text-gray-500">
+          ✕
+        </button>
+      </div>
+
+      <form id="project-form" class="space-y-4">
+
+        <div>
+          <label class="mb-1 block font-semibold">
+            Project Name
+          </label>
+
+          <input type="text" id="project-name-input" placeholder="Enter project name" class="w-full rounded-lg border px-4 py-2" />
+        </div>
+
+        <div>
+          <label class="mb-1 block font-semibold">
+            Status
+          </label>
+
+          <select id="project-status-input" class="w-full rounded-lg border px-4 py-2">
+            <option value="Pending">Pending</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <button type="submit" class="w-full rounded-lg bg-blue-600 py-2 text-white hover:bg-blue-700">
+          Add Project
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const notificationButton = document.getElementById("notification-btn");
+      const notificationPanel = document.getElementById("notification-panel");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuButton = document.getElementById("mobile-menu-btn");
+      const profileButton = document.getElementById("profile-btn");
+      const profilePanel = document.getElementById("profile-panel");
+      const searchInput = document.getElementById("search-input");
+      const noResults = document.getElementById("no-results");
+      const newProjectButton = document.getElementById("new-project-btn");
+      const projectModal = document.getElementById("project-modal");
+      const closeProjectModal = document.getElementById("close-project-modal");
+      const projectForm = document.getElementById("project-form");
+      const projectNameInput = document.getElementById("project-name-input");
+      const projectStatusInput = document.getElementById("project-status-input");
+
+      if (notificationButton && notificationPanel) {
+        notificationButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          notificationPanel.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!notificationPanel.contains(event.target) && !notificationButton.contains(event.target)) {
+            notificationPanel.classList.add("hidden");
+          }
+        });
+      }
+
+      if (mobileMenu && mobileMenuButton) {
+        mobileMenuButton.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+
+      if (profileButton && profilePanel) {
+        profileButton.addEventListener("click", (event) => {
+          event.stopPropagation();
+          profilePanel.classList.toggle("hidden");
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!profilePanel.contains(event.target) && !profileButton.contains(event.target)) {
+            profilePanel.classList.add("hidden");
+          }
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener("input", () => {
+          const searchText = searchInput.value.trim().toLowerCase();
+          const projectRows = document.querySelectorAll(".project-row");
+          let matchCount = 0;
+
+          projectRows.forEach((row) => {
+            const projectName = row
+              .querySelector(".project-name")
+              .textContent
+              .toLowerCase();
+
+            const projectStatus = row
+              .querySelector(".project-status")
+              .textContent
+              .toLowerCase();
+
+            if (
+              projectName.includes(searchText) ||
+              projectStatus.includes(searchText)
+            ) {
+              row.style.display = "";
+              matchCount++;
+            } else {
+              row.style.display = "none";
+            }
+          });
+
+          if (matchCount === 0) {
+            noResults?.classList.remove("hidden");
+          } else {
+            noResults?.classList.add("hidden");
+          }
+        });
+      }
+
+      newProjectButton.addEventListener("click", () => {
+        projectModal.classList.remove("hidden");
+      });
+
+      closeProjectModal.addEventListener("click", () => {
+        projectModal.classList.add("hidden");
+      });
+
+      projectForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const projectName = projectNameInput.value.trim();
+        const projectStatus = projectStatusInput.value;
+
+        if (projectName === "") {
+          alert("Please enter a project name.");
+          return;
+        }
+
+        const newRow = document.createElement("tr");
+        newRow.className = "project-row border-b";
+
+        newRow.innerHTML = `
+          <td class="project-name px-4 py-3">
+            ${projectName}
+          </td>
+
+          <td class="px-4 py-3">
+            <span class="project-status bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">
+              ${projectStatus}
+            </span>
+          </td>
+
+          <td class="px-4 py-3">
+            1 member
+          </td>
+
+          <td class="px-4 py-3">
+            New
+          </td>
+        `;
+
+        document.getElementById("project-list").appendChild(newRow);
+        projectForm.reset();
+        projectModal.classList.add("hidden");
+      });
+    });
+  </script>
+</body>
+
+</html>
